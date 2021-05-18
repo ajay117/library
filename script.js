@@ -1,10 +1,13 @@
+'use strict';
+
+let form2  = document.querySelector('form');
 let body = document.querySelector('body');
 let container = document.querySelector('.container');
 let submitButton = document.querySelector('button');
 let myLibrary = [];
 let button = document.querySelectorAll('buttton');
 let addBookCard = document.querySelector('div.card.icon');
-let form = document.querySelector('fieldset');
+let form = document.querySelector('fieldset'); 
 
 addBookCard.addEventListener('click', () => {
     form.classList.remove('hide');
@@ -88,7 +91,6 @@ function createCard(item) {
     button.addEventListener('click', () => {
         myLibrary.splice(myLibrary.indexOf(item, 1));
         container.removeChild(div);
-        console.log(myLibrary);
     });
 }
 
