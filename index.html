@@ -11,20 +11,22 @@
     <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
-    <fieldset class="hide">
-      <p class="center">Add Books:-</p>
+    <form class="hide" action="" method="GET   ">
+      <h3 class="center">Add Books:-</h3>
       <span id="close" class="glyphicon glyphicon-remove-circle"></span>
-      <label>Title</label>
-      <input data-name="title" type="text" required /> <br />
-      <label>Author</label>
-      <input data-name="author" type="text" required /> <br />
-      <label>Total Pages</label>
-      <input data-name="pages" type="number" required /> <br />
-      <label>Page You Are On</label>
-      <input data-name="isRead" type="number" required /> <br />
+      <label id="title">Title</label>
+      <input id="title" name="title" data-name="title" type="text" required />
+      <br />
+      <label id="author">Author</label>
+      <input id="author" data-name="author" type="text" required /> <br />
+      <label id="total-pages">Total Pages</label>
+      <input id="total-pages" data-name="pages" type="number" required /> <br />
+      <label id="page-read">Page You Are On</label>
+      <input id="page-read" data-name="isRead" type="number" required /> <br />
       <button>Submit</button>
-    </fieldset>
+    </form>
 
+    <!--Books user add will populate in this container-->
     <div class="container"></div>
     <div class="card icon">
       <span class="glyphicon glyphicon-plus"></span>

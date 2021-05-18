@@ -19,8 +19,8 @@ submitButton.addEventListener('click', createDisplay);
 function Book(title, author, numOfPages, numOfPagesRead) {
     this.title = title;
     this.author = author;
-    this.numOfPages = Number(numOfPages);
-    this.numOfPagesRead = Number(numOfPagesRead);
+    this.numOfPages = numOfPages;
+    this.numOfPagesRead = numOfPagesRead;
 }
 
 Book.prototype.info = function() {
@@ -33,7 +33,17 @@ function createDisplay() {
     const pages = document.querySelector('input[data-name="pages"]');
     const isRead = document.querySelector('input[data-name="isRead"]');
 
+    pages.value = Number(pages.value);
+    isRead.value = Number(isRead.value);
+
     if (title.value && author.value && pages.value && isRead.value) {
+        if(isRead.value > pages.value) {
+            alert('Page number should be less than or equal to total pages.');
+            return;
+        } else if(isRead.value <= 0) {
+            alert('Page number cannot be less than 1.');
+            return;
+        }
         addBookToLibrary(title.value, author.value, pages.value, isRead.value);
         createCard(myLibrary[myLibrary.length - 1]);
     }
