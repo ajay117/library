@@ -101,11 +101,20 @@ function createCard(item) {
     addSubtractCompleteButton.forEach(btn => {
         //Selecting all paragraph elements inside card container...
         let allPara = div.querySelectorAll('p');        
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', () => {            
             if(btn.innerText === 'Add') {
-                item.numOfPagesRead += 1;
-                //Selecting 3rd 'p' element and updating it while user clicks the add button...
-                allPara[3].textContent = 'Completed : ' + item.numOfPagesRead;                
+                if(item.numOfPagesRead < item.numOfPages) {
+                    item.numOfPagesRead += 1;                
+                    allPara[3].textContent = 'Completed : ' + item.numOfPagesRead;  
+                }              
+            } else if(btn.innerText === 'Subtract') {
+                if(item.numOfPagesRead > 1) {
+                    item.numOfPagesRead -= 1;                
+                    allPara[3].textContent = 'Completed : ' + item.numOfPagesRead;
+                }                            
+            } else {
+                item.numOfPagesRead = item.numOfPages;
+                allPara[3].textContent = 'Completed : ' + item.numOfPagesRead;
             }
         });
     });
