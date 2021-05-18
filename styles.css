@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 16px;
+}
+fieldset {
+  position: relative;
+  max-width: 100%;
+  top: 100px;
+  left: 0;
+  z-index: 3;
+  background-color: aqua;
+  padding: 50px 0 50px 10px;
+  margin: 0 3px;
+}
+
+.center {
+  text-align: center;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.card {
+  flex: 100%;
+  max-width: calc(100% - 10px);
+  padding: 10px;
+  margin: 5px 5px;
+  height: 200px;
+  border: 1px solid black;
+  box-shadow: 2px 2px;
+}
+.options.container {
+  padding: 0;
+  background-color: black;
+}
+.options button {
+  width: 33.33%;
+}
+.options .container {
+  justify-content: space-around;
+}
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-color: gray;
+}
+.icon span {
+  font-size: 100px;
+  color: #dfdce3;
+}
+.hide {
+  display: none;
+}
+#close {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+button.delete {
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  fieldset {
+    max-width: 70%;
+  }
+  .card {
+    flex: 50%;
+    max-width: calc(50% - 10px);
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  fieldset {
+    max-width: 70%;
+  }
+  .card {
+    flex: 33.33%;
+    max-width: calc(33.33% - 10px);
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .card {
+    flex: 25%;
+    max-width: calc(25% - 10px);
+  }
+}
