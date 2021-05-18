@@ -47,7 +47,7 @@ function createCard(item) {
     let container = document.querySelector('.container');
     let div = document.createElement('div');
     let button = document.createElement('button');
-    let div2 = document.createElement('div');
+    let childDiv = document.createElement('div');
     let options = ['Add','Complete','Subtract'];
     for(let key in item) {
         if (key !== 'id' && (typeof(item[key]) !== 'function')) {
@@ -73,10 +73,10 @@ function createCard(item) {
     for(let i = 0; i < 3; i++) {
     let button = document.createElement('button');
     button.textContent = options[i];
-    div2.appendChild(button);
+    childDiv.appendChild(button);
     }
-    div2.setAttribute('class','options container');
-    div.appendChild(div2);
+    childDiv.setAttribute('class','options container');
+    div.appendChild(childDiv);
 
     button.textContent = 'Delete';
     button.setAttribute('class','delete');
@@ -86,7 +86,9 @@ function createCard(item) {
     container.appendChild(div);
 
     button.addEventListener('click', () => {
-
+        myLibrary.splice(myLibrary.indexOf(item, 1));
+        container.removeChild(div);
+        console.log(myLibrary);
     });
 }
 
@@ -97,8 +99,10 @@ function addBookToLibrary(title, author, numOfPages, numOfPagesRead) {
     myLibrary.push(book);
 }
 
-addBookToLibrary('love','Ajay',233,123);
-addBookToLibrary('love','Ajay',233,123);
-addBookToLibrary('love','Ajay',233,123);
+// addBookToLibrary('love','Ajay',233,123);
+// addBookToLibrary('love','Ajay',233,123);
+// addBookToLibrary('love','Ajay',233,123);
 
+
+// myLibrary.forEach(item => createCard(item));
 console.log(myLibrary);
