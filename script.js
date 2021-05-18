@@ -19,8 +19,8 @@ submitButton.addEventListener('click', createDisplay);
 function Book(title, author, numOfPages, numOfPagesRead) {
     this.title = title;
     this.author = author;
-    this.numOfPages = numOfPages;
-    this.numOfPagesRead = numOfPagesRead;
+    this.numOfPages = Number(numOfPages);
+    this.numOfPagesRead = Number(numOfPagesRead);
 }
 
 Book.prototype.info = function() {
@@ -49,25 +49,25 @@ function createDisplay() {
 function createCard(item) {
     let container = document.querySelector('.container');
     let div = document.createElement('div');
-    let button = document.createElement('button');
+    let deleteBtn = document.createElement('button');
     let childDiv = document.createElement('div');
     let options = ['Add','Complete','Subtract'];
     for(let key in item) {
         if (key !== 'id' && (typeof(item[key]) !== 'function')) {
-            let name = item[key];
+            let value = item[key];
             let para = document.createElement('p');
             switch (key) {
                 case 'title':
-                    para.textContent = 'Title : ' + name;  
+                    para.textContent = 'Title : ' + value;  
                     break;
                 case 'author':
-                    para.textContent = 'Author : ' + name;
+                    para.textContent = 'Author : ' + value;
                     break;
                 case 'numOfPages':
-                    para.textContent = 'Pages : ' + name;
+                    para.textContent = 'Pages : ' + value;
                     break;
                 case 'numOfPagesRead':
-                    para.textContent = 'Completed : ' + name;
+                    para.textContent = 'Completed : ' + value;
                     break;
             }
             div.appendChild(para);
@@ -78,19 +78,36 @@ function createCard(item) {
     button.textContent = options[i];
     childDiv.appendChild(button);
     }
+    
     childDiv.setAttribute('class','options container');
     div.appendChild(childDiv);
+    
+    deleteBtn.textContent = 'Delete';
+    deleteBtn.setAttribute('class','delete');
 
-    button.textContent = 'Delete';
-    button.setAttribute('class','delete');
+    div.appendChild(deleteBtn);
+    div.setAttribute('class', 'card');    
 
-    div.appendChild(button);
-    div.setAttribute('class', 'card');
     container.appendChild(div);
 
-    button.addEventListener('click', () => {
+    deleteBtn.addEventListener('click', () => {
         myLibrary.splice(myLibrary.indexOf(item, 1));
         container.removeChild(div);
+    });
+
+    
+    //For Add, Complete and Subtract Button
+    let addSubtractCompleteButton = childDiv.querySelectorAll('button');
+    addSubtractCompleteButton.forEach(btn => {
+        //Selecting all paragraph elements inside card container...
+        let allPara = div.querySelectorAll('p');        
+        btn.addEventListener('click', () => {
+            if(btn.innerText === 'Add') {
+                item.numOfPagesRead += 1;
+                //Selecting 3rd 'p' element and updating it while user clicks the add button...
+                allPara[3].textContent = 'Completed : ' + item.numOfPagesRead;                
+            }
+        });
     });
 }
 
@@ -107,4 +124,4 @@ function addBookToLibrary(title, author, numOfPages, numOfPagesRead) {
 
 
 // myLibrary.forEach(item => createCard(item));
-console.log(myLibrary);
+// console.log(myLibrary);
