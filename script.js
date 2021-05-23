@@ -1,10 +1,9 @@
 'use strict';
 
-let form2  = document.querySelector('form');
+let myLibrary = [];
 let body = document.querySelector('body');
 let container = document.querySelector('.container');
 let submitButton = document.querySelector('button');
-let myLibrary = [];
 let button = document.querySelectorAll('buttton');
 let addBookCard = document.querySelector('.icon');
 let closeBtn = document.querySelector('.js-close');
@@ -66,7 +65,7 @@ function createDisplay(e) {
 }
 
 
-//Create Card...
+//All info about book will place inside this card...
 function createCard(item) {
     let container = document.querySelector('.container');
     let div = document.createElement('div');
@@ -141,17 +140,8 @@ function createCard(item) {
     });
 }
 
+//Function to create new book object and add to myLibrary array...
 function addBookToLibrary(title, author, numOfPages, numOfPagesRead) {
     let book = new Book(title, author, numOfPages, numOfPagesRead);
-    // let id = myLibrary.length;
-    // book.id = id;
     myLibrary.push(book);
 }
-
-// addBookToLibrary('love','Ajay',233,123);
-// addBookToLibrary('love','Ajay',233,123);
-// addBookToLibrary('love','Ajay',233,123);
-
-
-// myLibrary.forEach(item => createCard(item));
-// console.log(myLibrary);
