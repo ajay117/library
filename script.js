@@ -1,6 +1,25 @@
 'use strict';
 
-let myLibrary = [];
+let myLibrary = [
+    // {
+    //     title : 'Harry Potter',
+    //     author : 'Ajay',
+    //     numOfPages : 200,
+    //     numOfPagesRead : 170
+    // },
+    // {
+    //     title : 'Harry Potter',
+    //     author : 'Ajay',
+    //     numOfPages : 200,
+    //     numOfPagesRead : 170
+    // },
+    // {
+    //     title : 'Harry Potter',
+    //     author : 'Ajay',
+    //     numOfPages : 200,
+    //     numOfPagesRead : 170
+    // }
+];
 let body = document.querySelector('body');
 let container = document.querySelector('.container');
 let submitButton = document.querySelector('button');
@@ -9,12 +28,20 @@ let addBookCard = document.querySelector('.icon');
 let closeBtn = document.querySelector('.js-close');
 let form = document.querySelector('form'); 
 
+let testArray = JSON.parse(localStorage.getItem('book'));
+myLibrary = testArray.slice();
+console.log(myLibrary);
+
+myLibrary.forEach(item => {
+    createCard(item);
+});
+
 addBookCard.addEventListener('click', () => {
     //Adding 'show-pos' class will drag change the left property of form from -10000px to 0.
     form.classList.add('show-pos');
 });
 closeBtn.addEventListener('click', () => {
-    form.classList.remove('show-pos');
+    form.classList.remove('show-pos');  
 });
 
 submitButton.addEventListener('click', createDisplay);
@@ -66,6 +93,7 @@ function createDisplay(e) {
 
 
 //All info about book will place inside this card...
+//Take element from main array and populate dom...
 function createCard(item) {
     let container = document.querySelector('.container');
     let div = document.createElement('div');
@@ -144,4 +172,5 @@ function createCard(item) {
 function addBookToLibrary(title, author, numOfPages, numOfPagesRead) {
     let book = new Book(title, author, numOfPages, numOfPagesRead);
     myLibrary.push(book);
+    localStorage.setItem('book', JSON.stringify(myLibrary));
 }
