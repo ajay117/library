@@ -7,7 +7,7 @@ let submitButton = document.querySelector('button');
 let myLibrary = [];
 let button = document.querySelectorAll('buttton');
 let addBookCard = document.querySelector('div.card.icon');
-let form = document.querySelector('fieldset'); 
+let form = document.querySelector('form'); 
 
 addBookCard.addEventListener('click', () => {
     form.classList.remove('hide');
@@ -27,30 +27,29 @@ Book.prototype.info = function() {
     return `${this.title} by ${this.author}, ${this.numOfPages}, ${this.read ? 'already finished reading' : 'not read yet'}.`;
 }
 
-function createDisplay() {
-    const title = document.querySelector('input[data-name="title"]');
-    const author = document.querySelector('input[data-name="author"]');
-    const pages = document.querySelector('input[data-name="pages"]');
-    const isRead = document.querySelector('input[data-name="isRead"]');
+function createDisplay(e) {
+    e.preventDefault();
+    // const title = document.querySelector('input[data-name="title"]');
+    let bookTitle = document.querySelector('input#title').value;
+    let bookAuthor = document.querySelector('input#author').value;
+    let bookTotalPage = Number(document.querySelector('input#total-pages').value);
+    let pageYourAreOn = Number(document.querySelector('input#page-read').value);
 
-    pages.value = Number(pages.value);
-    isRead.value = Number(isRead.value);
-
-    if (title.value && author.value && pages.value && isRead.value) {
-        if(isRead.value > pages.value) {
+    if (bookTitle && bookAuthor && bookTotalPage && pageYourAreOn) {
+        if(pageYourAreOn > bookTotalPage) {
             alert('Page number should be less than or equal to total pages.');
             return;
-        } else if(isRead.value <= 0) {
+        } else if(pageYourAreOn <= 0) {
             alert('Page number cannot be less than 1.');
             return;
         }
-        addBookToLibrary(title.value, author.value, pages.value, isRead.value);
+        addBookToLibrary(bookTitle, bookAuthor, bookTotalPage, pageYourAreOn);
         createCard(myLibrary[myLibrary.length - 1]);
     }
-    title.value = null;
-    author.value = null;
-    pages.value = null;
-    isRead.value = null;
+    bookTitle= null;
+    bookAuthor = null;
+    bookTotalPage = null;
+    pageYourAreOn = null;
     form.classList.add('hide');
 }
 

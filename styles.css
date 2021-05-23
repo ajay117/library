@@ -5,10 +5,10 @@ body {
   font-size: 16px;
 }
 form {
-  position: relative;
+  position: absolute;
   max-width: 100%;
   top: 100px;
-  left: 0;
+  left: -10000px;
   z-index: 3;
   background-color: aqua;
   padding: 50px 0 50px 10px;
@@ -31,16 +31,17 @@ form {
   border: 1px solid black;
   box-shadow: 2px 2px;
 }
-.options.container {
+.options {
+  max-width: 100%;
   padding: 0;
-  background-color: black;
 }
 .options button {
   width: 33.33%;
 }
-.options .container {
-  justify-content: space-around;
+.btn {
+  width: 33.33%;
 }
+
 .icon {
   display: flex;
   justify-content: center;
@@ -54,6 +55,9 @@ form {
 .hide {
   display: none;
 }
+.show-pos {
+  left: 0;
+}
 #close {
   position: absolute;
   top: 0;
@@ -63,7 +67,7 @@ button.delete {
   width: 100%;
 }
 
-@media only screen and (min-width: 600px) {
+/* @media only screen and (min-width: 600px) {
   form {
     max-width: 70%;
   }
@@ -71,11 +75,14 @@ button.delete {
     flex: 50%;
     max-width: calc(50% - 10px);
   }
+  .options button {
+    flex: 33.33%;
+    max-width: 33.33%;
+  }
 }
 
 @media only screen and (min-width: 900px) {
-  -ms-flow-from: ;
-   {
+  form {
     max-width: 70%;
   }
   .card {
@@ -89,4 +96,4 @@ button.delete {
     flex: 25%;
     max-width: calc(25% - 10px);
   }
-}
+} */
