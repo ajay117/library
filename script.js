@@ -6,11 +6,16 @@ let container = document.querySelector('.container');
 let submitButton = document.querySelector('button');
 let myLibrary = [];
 let button = document.querySelectorAll('buttton');
-let addBookCard = document.querySelector('div.card.icon');
+let addBookCard = document.querySelector('.icon');
+let closeBtn = document.querySelector('.js-close');
 let form = document.querySelector('form'); 
 
 addBookCard.addEventListener('click', () => {
-    form.classList.remove('hide');
+    //Adding 'show-pos' class will drag change the left property of form from -10000px to 0.
+    form.classList.add('show-pos');
+});
+closeBtn.addEventListener('click', () => {
+    form.classList.remove('show-pos');
 });
 
 submitButton.addEventListener('click', createDisplay);
@@ -35,22 +40,29 @@ function createDisplay(e) {
     let bookTotalPage = Number(document.querySelector('input#total-pages').value);
     let pageYourAreOn = Number(document.querySelector('input#page-read').value);
 
-    if (bookTitle && bookAuthor && bookTotalPage && pageYourAreOn) {
-        if(pageYourAreOn > bookTotalPage) {
-            alert('Page number should be less than or equal to total pages.');
-            return;
-        } else if(pageYourAreOn <= 0) {
-            alert('Page number cannot be less than 1.');
-            return;
-        }
+    
+    if(bookTotalPage < 1 || pageYourAreOn < 1) {
+        alert('Page number should not be less than 1.');
+        return;
+    } else if(pageYourAreOn > bookTotalPage) {
+        alert('Page number should be less than or equal to total pages.');
+        return;
+    } 
+
+    if (bookTitle && bookAuthor && bookTotalPage && pageYourAreOn) {        
         addBookToLibrary(bookTitle, bookAuthor, bookTotalPage, pageYourAreOn);
         createCard(myLibrary[myLibrary.length - 1]);
+    }   
+    clearForm();
+    form.classList.remove('show-pos');
+
+    //To clear Form inputs..
+    function clearForm() {
+        document.querySelector('input#title').value = null;
+        document.querySelector('input#author').value = null;
+        document.querySelector('input#total-pages').value = null;
+        document.querySelector('input#page-read').value
     }
-    bookTitle= null;
-    bookAuthor = null;
-    bookTotalPage = null;
-    pageYourAreOn = null;
-    form.classList.add('hide');
 }
 
 
