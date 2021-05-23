@@ -1,25 +1,6 @@
 'use strict';
 
-let myLibrary = [
-    // {
-    //     title : 'Harry Potter',
-    //     author : 'Ajay',
-    //     numOfPages : 200,
-    //     numOfPagesRead : 170
-    // },
-    // {
-    //     title : 'Harry Potter',
-    //     author : 'Ajay',
-    //     numOfPages : 200,
-    //     numOfPagesRead : 170
-    // },
-    // {
-    //     title : 'Harry Potter',
-    //     author : 'Ajay',
-    //     numOfPages : 200,
-    //     numOfPagesRead : 170
-    // }
-];
+let myLibrary = [];
 let body = document.querySelector('body');
 let container = document.querySelector('.container');
 let submitButton = document.querySelector('button');
@@ -28,9 +9,12 @@ let addBookCard = document.querySelector('.icon');
 let closeBtn = document.querySelector('.js-close');
 let form = document.querySelector('form'); 
 
-let testArray = JSON.parse(localStorage.getItem('book'));
-myLibrary = testArray.slice();
-console.log(myLibrary);
+let localStorageArray = JSON.parse(localStorage.getItem('book'));
+
+if(localStorageArray) {
+    myLibrary = localStorageArray.slice();
+}
+
 
 myLibrary.forEach(item => {
     createCard(item);
