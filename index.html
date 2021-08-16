@@ -1,42 +1,63 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Library</title>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-  </head>
-  <body>
-    <form action="" method="GET   ">
-      <h3 class="center">Add Books:-</h3>
-      <span
-        id="close"
-        class="glyphicon glyphicon-remove-circle js-close"
-      ></span>
-      <label id="title">Title</label>
-      <input id="title" name="title" data-name="title" type="text" required />
-      <br />
-      <label id="author">Author</label>
-      <input id="author" data-name="author" type="text" required /> <br />
-      <label id="total-pages">Total Pages</label>
-      <input id="total-pages" data-name="pages" type="number" required /> <br />
-      <label id="page-read">Continue On</label>
-      <input id="page-read" data-name="isRead" type="number" required /> <br />
-      <div class="button center">
-        <button>Submit</button>
-      </div>
-    </form>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Library</title>
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		/>
+		<link rel="stylesheet" type="text/css" href="styles.css" />
+	</head>
+	<body>
+		<form>
+			<h3 class="center">Add Books:-</h3>
+			<span
+				id="close"
+				class="glyphicon glyphicon-remove-circle js-close"
+			></span>
+			<label for="title">Title</label>
+			<input id="title" name="title" data-name="title" type="text" required />
+			<br />
+			<label for="author">Author</label>
+			<input
+				id="author"
+				name="author"
+				data-name="author"
+				type="text"
+				required
+			/>
+			<br />
+			<label for="total-pages">Total Pages</label>
+			<input
+				id="total-pages"
+				name="total-pages"
+				data-name="pages"
+				type="number"
+				required
+			/>
+			<br />
+			<label for="page-read">Continue On</label>
+			<input
+				id="page-read"
+				name="page-read"
+				data-name="isRead"
+				type="number"
+				required
+			/>
+			<br />
+			<div class="button center">
+				<button>Submit</button>
+			</div>
+		</form>
 
-    <div class="card icon">
-      <span class="glyphicon glyphicon-plus"></span>
-    </div>
-    <!--Books user add will populate in this container-->
-    <div class="container"></div>
+		<div class="card icon">
+			<span class="glyphicon glyphicon-plus"></span>
+		</div>
+		<!--Books user add will populate in this container-->
+		<div class="container"></div>
 
-    <script src="script.js"></script>
-  </body>
+		<script src="script.js"></script>
+	</body>
 </html>
