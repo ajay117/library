@@ -45,6 +45,12 @@ button {
 	color: rgb(29, 29, 29);
 	background-color: darkgray;
 }
+footer {
+	text-align: center;
+	background-color: #9ba7c0;
+	margin-top: 10px;
+	/* padding: 5px; */
+}
 
 /* || Classes  */
 .container {
