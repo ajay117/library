@@ -16,6 +16,7 @@ class Book {
 let myLibrary = [];
 let body = document.querySelector("body");
 let container = document.querySelector(".container");
+let formContainer = document.querySelector(".form-container");
 let submitButton = document.querySelector("button");
 let button = document.querySelectorAll("buttton");
 let addBookCard = document.querySelector(".icon");
@@ -33,11 +34,12 @@ myLibrary.forEach((item) => {
 });
 
 addBookCard.addEventListener("click", () => {
+	formContainer.classList.remove("hide");
 	//Adding 'show-pos' class will drag change the left property of form from -10000px to 0.
-	form.classList.add("show-pos");
+	// form.classList.add("show-pos");
 });
 closeBtn.addEventListener("click", () => {
-	form.classList.remove("show-pos");
+	formContainer.classList.add("hide");
 });
 
 form.addEventListener("submit", createDisplay);
@@ -89,7 +91,21 @@ function createCard(item) {
 	let div = document.createElement("div");
 	let deleteBtn = document.createElement("button");
 	let childDiv = document.createElement("div");
-	let options = ["Add", "Complete", "Subtract"];
+	// let options = ["Add", "Complete", "Subtract"];
+	let options = [
+		{
+			btn: "Add",
+			class: "add",
+		},
+		{
+			btn: "Complete",
+			class: "complete",
+		},
+		{
+			btn: "Subtract",
+			class: "subtract",
+		},
+	];
 	console.log(item);
 	for (let key in item) {
 		if (key !== "id" && typeof item[key] !== "function") {
@@ -114,7 +130,8 @@ function createCard(item) {
 	}
 	for (let i = 0; i < 3; i++) {
 		let button = document.createElement("button");
-		button.textContent = options[i];
+		button.textContent = options[i].btn;
+		button.classList.add(options[i].class);
 		childDiv.appendChild(button);
 	}
 
