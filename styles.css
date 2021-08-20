@@ -1,3 +1,4 @@
+/* || Global  */
 * {
 	box-sizing: border-box;
 }
@@ -6,22 +7,8 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	letter-spacing: 1px;
 }
-.form-container {
-	position: relative;
-	max-width: 100%;
-	height: 100vh;
-	background-color: #e86a92;
-}
-form button {
-	margin: 20px 0;
-	background-color: #7a28cb;
-	color: white;
-	width: 70%;
-	border: none;
-	outline: none;
-	padding: 15px;
-	font-weight: 500;
-}
+
+/* || Elements */
 form {
 	border: 1px solid white;
 	position: absolute;
@@ -31,28 +18,46 @@ form {
 	width: 90%;
 	text-align: center;
 }
-label {
-	margin-top: 10px;
-	display: block;
-}
-legend,
-label {
-	color: #f0f0f0;
-}
-legend {
-	border-bottom: 1px solid white;
+form button {
+	margin: 20px 0;
+	width: 70%;
+	border: none;
+	outline: none;
+	padding: 15px;
+	font-weight: 500;
 }
 input {
 	width: 70%;
 	padding: 5px;
-	color: #357ded;
 }
+label {
+	margin-top: 10px;
+	display: block;
+}
+legend {
+	border-bottom: 1px solid white;
+}
+button {
+	padding: 10px;
+	font-weight: 600;
+	border: none;
+	outline: none;
+	color: rgb(29, 29, 29);
+	background-color: darkgray;
+}
+
+/* || Classes  */
 .container {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	padding: 0;
 	margin: 0;
+}
+.form-container {
+	position: relative;
+	max-width: 100%;
+	height: 100vh;
 }
 .options.container {
 	justify-content: space-between;
@@ -86,87 +91,11 @@ input {
 .delete {
 	width: 100%;
 	margin-top: 10px;
-	/* background-color: #e70e02; */
 }
-button {
-	padding: 10px;
-	font-weight: 500;
-	border: none;
-	outline: none;
-	color: rgb(29, 29, 29);
+.info {
+	font-weight: 600;
+	margin-right: 5px;
 }
-/* .add,
-.complete,
-.subtract {
-	background-color: #00a1e4;
-} */
-/* .complete {
-	background-color: #fc5130;
-}
-.subtract {
-	background-color: #ec7505;
-} */
-/* form {
-	position: absolute;
-	width: 90%;
-	z-index: 3;
-	background-color: aqua;
-	padding: 50px 0 50px 10px;
-	margin: 0 3px;
-	background-color: #281aee;
-	top: 50%;
-	left: -10000px;
-	transform: translate(-50%, -50%);
-}
-h3 {
-	color: white;
-}
-form p,
-label {
-	width: 30%;
-	color: white;
-} */
-/* input {
-	width: 60%;
-}
-form button {
-	width: 80%;
-	margin-top: 20px;
-	border-radius: 15px;
-	padding: 5px;
-	border: none;
-}
-label {
-	margin-right: 20px;
-} */
-
-/* #close {
-	color: white;
-	font-size: 22px;
-}
-.center {
-	text-align: center;
-} */
-/* .options {
-	max-width: 100%;
-	padding: 0;
-}
-.options button {
-	width: 33.33%;
-}
-.btn {
-	width: 33.33%;
-} */
-
-/*
-.show-pos {
-	left: 50%;
-}
-#close {
-	position: absolute;
-	top: 0;
-	right: 0;
-} */
 
 @media screen and (min-width: 700px) {
 	form {
@@ -179,10 +108,6 @@ label {
 		flex: 0 1 48%;
 		margin-left: 1%;
 	}
-	/* .card {
-		flex: 50%;
-		max-width: calc(50% - 10px);
-	} */
 }
 
 @media screen and (min-width: 1000px) {
