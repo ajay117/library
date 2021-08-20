@@ -1,112 +1,196 @@
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 body {
-  font-size: 16px;
-  font-family: Arial, Helvetica, sans-serif;
-  letter-spacing: 1px;
+	font-size: 16px;
+	font-family: Arial, Helvetica, sans-serif;
+	letter-spacing: 1px;
+}
+.form-container {
+	position: relative;
+	max-width: 100%;
+	height: 100vh;
+	background-color: #e86a92;
+}
+form button {
+	margin: 20px 0;
+	background-color: #7a28cb;
+	color: white;
+	width: 70%;
+	border: none;
+	outline: none;
+	padding: 15px;
+	font-weight: 500;
 }
 form {
-  position: absolute;
-  width: 95%;
-  z-index: 3;
-  background-color: aqua;
-  padding: 50px 0 50px 10px;
-  margin: 0 3px;
-  background-color: #281aee;
-  top: 50%;
-  left: -10000px;
-  transform: translate(-50%, -50%);
+	border: 1px solid white;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 90%;
+	text-align: center;
+}
+label {
+	margin-top: 10px;
+	display: block;
+}
+legend,
+label {
+	color: #f0f0f0;
+}
+legend {
+	border-bottom: 1px solid white;
+}
+input {
+	width: 70%;
+	padding: 5px;
+	color: #357ded;
+}
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	padding: 0;
+	margin: 0;
+}
+.options.container {
+	justify-content: space-between;
+}
+.card {
+	flex: 0 1 100%;
+	padding: 20px;
+	height: auto;
+	border: 1px solid black;
+	box-shadow: 2px 2px;
+	margin-top: 10px;
+}
+.icon {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	align-items: center;
+	border-color: gray;
+	margin: 0 auto;
+}
+.icon span {
+	font-size: 100px;
+	color: #dfdce3;
+}
+.close-icon-container {
+	text-align: right;
+}
+.hide {
+	display: none;
+}
+.delete {
+	width: 100%;
+	margin-top: 10px;
+	/* background-color: #e70e02; */
+}
+button {
+	padding: 10px;
+	font-weight: 500;
+	border: none;
+	outline: none;
+	color: rgb(29, 29, 29);
+}
+/* .add,
+.complete,
+.subtract {
+	background-color: #00a1e4;
+} */
+/* .complete {
+	background-color: #fc5130;
+}
+.subtract {
+	background-color: #ec7505;
+} */
+/* form {
+	position: absolute;
+	width: 90%;
+	z-index: 3;
+	background-color: aqua;
+	padding: 50px 0 50px 10px;
+	margin: 0 3px;
+	background-color: #281aee;
+	top: 50%;
+	left: -10000px;
+	transform: translate(-50%, -50%);
 }
 h3 {
-  color: white;
+	color: white;
 }
 form p,
 label {
-  width: 30%;
-  color: white;
-}
-input {
-  width: 60%;
+	width: 30%;
+	color: white;
+} */
+/* input {
+	width: 60%;
 }
 form button {
-  width: 80%;
-  margin-top: 20px;
-  border-radius: 15px;
-  padding: 5px;
-  border: none;
+	width: 80%;
+	margin-top: 20px;
+	border-radius: 15px;
+	padding: 5px;
+	border: none;
 }
 label {
-  margin-right: 20px;
-}
+	margin-right: 20px;
+} */
 
-#close {
-  color: white;
-  font-size: 22px;
+/* #close {
+	color: white;
+	font-size: 22px;
 }
 .center {
-  text-align: center;
-}
-.container {
-  display: flex;
-  flex-wrap: wrap;
-}
-.card {
-  flex: 100%;
-  max-width: calc(100% - 10px);
-  padding: 10px;
-  margin: 10px 5px;
-  height: 200px;
-  border: 1px solid black;
-  box-shadow: 2px 2px;
-}
-.options {
-  max-width: 100%;
-  padding: 0;
+	text-align: center;
+} */
+/* .options {
+	max-width: 100%;
+	padding: 0;
 }
 .options button {
-  width: 33.33%;
+	width: 33.33%;
 }
 .btn {
-  width: 33.33%;
-}
+	width: 33.33%;
+} */
 
-.icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-color: gray;
-  margin: 0 19px;
-}
-.icon span {
-  font-size: 100px;
-  color: #dfdce3;
-}
-.hide {
-  display: none;
-}
+/*
 .show-pos {
-  left: 50%;
+	left: 50%;
 }
 #close {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-button.delete {
-  width: 100%;
-}
+	position: absolute;
+	top: 0;
+	right: 0;
+} */
 
 @media screen and (min-width: 700px) {
-  .card {
-    flex: 50%;
-    max-width: calc(50% - 10px);
-  }
+	form {
+		width: 70%;
+	}
+	.icon {
+		width: 45%;
+	}
+	.card {
+		flex: 0 1 48%;
+		margin-left: 1%;
+	}
+	/* .card {
+		flex: 50%;
+		max-width: calc(50% - 10px);
+	} */
 }
 
 @media screen and (min-width: 1000px) {
-  .card {
-    flex: 33.33%;
-    max-width: calc(33.33% - 10px);
-  }
+	form {
+		width: 50%;
+	}
+	.card {
+		flex: 0 1 32%;
+		margin-left: 1%;
+	}
 }
