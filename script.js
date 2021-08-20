@@ -42,7 +42,10 @@ closeBtn.addEventListener("click", () => {
 	formContainer.classList.add("hide");
 });
 
-form.addEventListener("submit", createDisplay);
+form.addEventListener("submit", function (e) {
+	createDisplay(e);
+	hideForm();
+});
 
 //Functions...
 //Function to create new book object and add to myLibrary array...
@@ -73,7 +76,6 @@ function createDisplay(e) {
 		createCard(myLibrary[myLibrary.length - 1]);
 	}
 	clearForm();
-	form.classList.remove("show-pos");
 
 	//To clear Form inputs..
 	function clearForm() {
@@ -106,23 +108,22 @@ function createCard(item) {
 			class: "subtract",
 		},
 	];
-	console.log(item);
 	for (let key in item) {
 		if (key !== "id" && typeof item[key] !== "function") {
 			let value = item[key];
 			let para = document.createElement("p");
 			switch (key) {
 				case "title":
-					para.textContent = "Title : " + value;
+					para.innerHTML = '<span class="info">Title :</span> ' + value;
 					break;
 				case "author":
-					para.textContent = "Author : " + value;
+					para.innerHTML = '<span class="info">Author : </span>' + value;
 					break;
 				case "numOfPages":
-					para.textContent = "Pages : " + value;
+					para.innerHTML = '<span class="info">Pages : </span>' + value;
 					break;
 				case "numOfPagesRead":
-					para.textContent = "Completed : " + value;
+					para.innerHTML = '<span class="info">Completed : </span>' + value;
 					break;
 			}
 			div.appendChild(para);
@@ -161,17 +162,25 @@ function createCard(item) {
 			if (btn.innerText === "Add") {
 				if (item.numOfPagesRead < item.numOfPages) {
 					item.numOfPagesRead += 1;
-					allPara[3].textContent = "Completed : " + item.numOfPagesRead;
+					allPara[3].innerHTML =
+						'<span class="info">Completed : </span>' + item.numOfPagesRead;
 				}
 			} else if (btn.innerText === "Subtract") {
 				if (item.numOfPagesRead > 1) {
 					item.numOfPagesRead -= 1;
-					allPara[3].textContent = "Completed : " + item.numOfPagesRead;
+					allPara[3].innerHTML =
+						'<span class="info">Completed : </span>' + item.numOfPagesRead;
 				}
 			} else {
 				item.numOfPagesRead = item.numOfPages;
-				allPara[3].textContent = "Completed : " + item.numOfPagesRead;
+				allPara[3].innerHTML =
+					'<span class="info">Completed : </span>' + item.numOfPagesRead;
 			}
 		});
 	});
+}
+
+//To hide form...
+function hideForm() {
+	formContainer.classList.add("hide");
 }
