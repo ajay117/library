@@ -13,6 +13,12 @@ class Book {
 	}
 }
 
+let itemNode; //We will use this variable  to find card location, when user clicks the 'Edit' button in DOM.
+
+//This will tell us whether user has clicked or not 'Edit' button.
+// We will check it when submitting form.
+let editState = false;
+let itemIndex; //This variable will have the index value of the library book item, which user want to edit.
 let myLibrary = [];
 let body = document.querySelector("body");
 let container = document.querySelector(".container");
@@ -43,6 +49,13 @@ closeBtn.addEventListener("click", () => {
 });
 
 form.addEventListener("submit", function (e) {
+	// When form pops up after user clicked the 'Edit' button,
+	if (editState) {
+		let container = document.querySelector(".container");
+		myLibrary.splice(itemIndex, 1);
+		container.removeChild(itemNode);
+		localStorage.setItem("book", JSON.stringify(myLibrary));
+	}
 	createDisplay(e);
 	hideForm();
 });
@@ -92,6 +105,7 @@ function createCard(item) {
 	let container = document.querySelector(".container");
 	let div = document.createElement("div");
 	let deleteBtn = document.createElement("button");
+	let editBtn = document.createElement("button");
 	let childDiv = document.createElement("div");
 	// let options = ["Add", "Complete", "Subtract"];
 	let options = [
@@ -145,12 +159,35 @@ function createCard(item) {
 	div.appendChild(deleteBtn);
 	div.setAttribute("class", "card");
 
+	editBtn.textContent = "Edit";
+	editBtn.setAttribute("class", "edit");
+	div.appendChild(editBtn);
+
 	container.appendChild(div);
 
 	deleteBtn.addEventListener("click", () => {
-		myLibrary.splice(myLibrary.indexOf(item, 1));
-		localStorage.setItem("book", JSON.stringify(myLibrary));
-		container.removeChild(div);
+		deleteCard();
+	});
+
+	editBtn.addEventListener("click", () => {
+		formContainer.classList.remove("hide");
+		document.querySelector("input#title").value = item.title;
+		document.querySelector("input#author").value = item.author;
+		document.querySelector("input#total-pages").value = item.numOfPages;
+		document.querySelector("input#page-read").value = item.numOfPagesRead;
+
+		//This will be checked by form, to know 'edit' button clicked or not...
+		editState = true;
+		scrollTop();
+
+		itemNode = div;
+		itemIndex = myLibrary.indexOf(item);
+
+		//This function will take user to the top of page, where form pop ups...
+		function scrollTop() {
+			document.body.scrollTop = 0; // For Safari
+			document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+		}
 	});
 
 	//For Add, Complete and Subtract Button
@@ -178,6 +215,12 @@ function createCard(item) {
 			}
 		});
 	});
+
+	function deleteCard() {
+		myLibrary.splice(myLibrary.indexOf(item), 1);
+		localStorage.setItem("book", JSON.stringify(myLibrary));
+		container.removeChild(div);
+	}
 }
 
 //To hide form...
