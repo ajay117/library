@@ -8,17 +8,17 @@ class Book {
 }
 
 let elem = (function () {
-  let home = document.querySelector("#home");
-  let books = document.querySelector("#books");
-  let container = document.querySelector(".container");
-  let main = document.querySelector("main");
-  let addBookBtn = document.querySelector(".js-add-btn");
-  let submitBtn = document.querySelector(".btn-submit");
-  let formContainer = document.querySelector(".form-container");
-  let form = document.querySelector("form");
-  let updateForm = document.querySelector(".update-form");
-  let updateFormContainer = document.querySelector(".update-form-container");
-  let introContainer = document.querySelector(".intro");
+  let home = document.querySelector("#home"),
+    books = document.querySelector("#books"),
+    container = document.querySelector(".container"),
+    main = document.querySelector("main"),
+    addBookBtn = document.querySelector(".js-add-btn"),
+    submitBtn = document.querySelector(".btn-submit"),
+    formContainer = document.querySelector(".form-container"),
+    form = document.querySelector("form"),
+    updateForm = document.querySelector(".update-form"),
+    updateFormContainer = document.querySelector(".update-form-container"),
+    introContainer = document.querySelector(".intro");
 
   return {
     home,
@@ -38,9 +38,9 @@ let elem = (function () {
 let data = (function () {
   //This variable will store the index of the specific book item..
   //And we will use the index when updating book..
-  let editObjIndex;
-  let myLibraryLocalStorage = JSON.parse(localStorage.getItem("myLibrary"));
-  let myLibrary = myLibraryLocalStorage || [];
+  let editObjIndex,
+    myLibraryLocalStorage = JSON.parse(localStorage.getItem("myLibrary")),
+    myLibrary = myLibraryLocalStorage || [];
 
   return {
     editObjIndex,
@@ -179,7 +179,6 @@ function addBookToView() {
 // Clear DOM
 function clearView() {
   let boxes = document.querySelectorAll(".box");
-
   Array.from(boxes).forEach((item) => {
     let box = document.querySelector(".box");
     elem.container.removeChild(box);
