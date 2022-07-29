@@ -120,21 +120,23 @@ function addBookToView() {
     box.classList.add("box");
     elem.container.appendChild(box);
     for (let prop in obj) {
-      let para = document.createElement("p");
-      let strong = document.createElement("strong");
-      let span = document.createElement("span");
+      let div = document.createElement("div");
+      let name = document.createElement("p");
+      let nameValue = document.createElement("p");
       let value = obj[prop];
       if (typeof value === "number") {
         value = value.toString();
       } else if (typeof value === "boolean") {
         value = value ? "Yes" : "No";
       }
-      strong.textContent = prop.toUpperCase() + ": ";
-      span.textContent = value.toUpperCase();
+      name.textContent = prop.toUpperCase() + ": ";
+      nameValue.textContent = value.toUpperCase();
 
-      para.appendChild(strong);
-      para.appendChild(span);
-      box.appendChild(para);
+      name.classList.add("flex-content");
+      div.classList.add("box-item");
+      div.appendChild(name);
+      div.appendChild(nameValue);
+      box.appendChild(div);
     }
 
     deleteBtn.addEventListener("click", () => {
