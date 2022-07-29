@@ -82,7 +82,6 @@ elem.updateForm.addEventListener("submit", (e) => {
   let totalPages = document.querySelector("#total_pages_update").value;
   let pageYouOn = document.querySelector("#page_you_on_update").value;
   let book = new Book(title, author, totalPages, pageYouOn);
-  // console.log(book,editObjIndex);
   data.myLibrary.splice(data.editObjIndex, 1, book);
   localStorage.setItem("myLibrary", JSON.stringify(data.myLibrary));
 
@@ -154,7 +153,6 @@ function addBookToView() {
 
     editBtn.addEventListener("click", () => {
       elem.updateFormContainer.classList.remove("hide");
-
       elem.updateForm.querySelector("#title_update").value = obj.title;
       elem.updateForm.querySelector("#author_update").value = obj.author;
       elem.updateForm.querySelector("#total_pages_update").value =
