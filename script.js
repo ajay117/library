@@ -110,8 +110,6 @@ elem.books.addEventListener("click", () => {
   elem.updateFormContainer.classList.add("hide");
 });
 
-
-
 // Add books to DOM
 function addBookToView() {
   data.myLibrary.forEach((obj, index) => {
