@@ -35,9 +35,19 @@ let elem = (function () {
   };
 })();
 
-let editObjIndex;
-let myLibraryLocalStorage = JSON.parse(localStorage.getItem("myLibrary"));
-let myLibrary = myLibraryLocalStorage || [];
+let data = (function () {
+  //This variable will store the index of the specific book item..
+  //And we will use the index when updating book..
+  let editObjIndex;
+  let myLibraryLocalStorage = JSON.parse(localStorage.getItem("myLibrary"));
+  let myLibrary = myLibraryLocalStorage || [];
+
+  return {
+    editObjIndex,
+    myLibraryLocalStorage,
+    myLibrary,
+  };
+})();
 
 addBookToView();
 
@@ -54,8 +64,8 @@ elem.form.addEventListener("submit", (e) => {
   let pageYouOn = document.querySelector("#page_you_on").value;
 
   let bookObj = new Book(title, author, totalPages, pageYouOn);
-  myLibrary.push(bookObj);
-  localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+  data.myLibrary.push(bookObj);
+  localStorage.setItem("myLibrary", JSON.stringify(data.myLibrary));
   elem.main.classList.remove("hide");
   elem.formContainer.classList.add("hide");
 
@@ -73,8 +83,8 @@ elem.updateForm.addEventListener("submit", (e) => {
   let pageYouOn = document.querySelector("#page_you_on_update").value;
   let book = new Book(title, author, totalPages, pageYouOn);
   // console.log(book,editObjIndex);
-  myLibrary.splice(editObjIndex, 1, book);
-  localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+  data.myLibrary.splice(data.editObjIndex, 1, book);
+  localStorage.setItem("myLibrary", JSON.stringify(data.myLibrary));
 
   elem.main.classList.remove("hide");
   elem.updateFormContainer.classList.add("hide");
@@ -110,7 +120,7 @@ elem.books.addEventListener("click", () => {
 
 // Add books to DOM
 function addBookToView() {
-  myLibrary.forEach((obj, index) => {
+  data.myLibrary.forEach((obj, index) => {
     let box = document.createElement("div");
     let buttonContainer = document.createElement("div");
     let editBtn = document.createElement("button");
@@ -136,8 +146,8 @@ function addBookToView() {
     }
 
     deleteBtn.addEventListener("click", () => {
-      myLibrary.splice(index, 1);
-      localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+      data.myLibrary.splice(index, 1);
+      localStorage.setItem("myLibrary", JSON.stringify(data.myLibrary));
       clearView();
       addBookToView();
     });
@@ -152,7 +162,7 @@ function addBookToView() {
       elem.updateForm.querySelector("#page_you_on_update").value =
         obj["page You On"];
       elem.main.classList.add("hide");
-      editObjIndex = index;
+      data.editObjIndex = index;
     });
 
     editBtn.textContent = "Edit";
