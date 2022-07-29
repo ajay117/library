@@ -185,7 +185,3 @@ function clearView() {
     elem.container.removeChild(box);
   });
 }
-
-window.addEventListener("DOMContentLoaded", (event) => {
-  console.log("refreshed");
-});
