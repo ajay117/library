@@ -1,3 +1,12 @@
+class Book {
+  constructor(title, author, totalPages, pageYouOn) {
+    this.title = title;
+    this.author = author;
+    this["total pages"] = totalPages;
+    this["page You On"] = pageYouOn;
+  }
+}
+
 let elem = (function () {
   let home = document.querySelector("#home");
   let books = document.querySelector("#books");
@@ -92,14 +101,12 @@ elem.books.addEventListener("click", () => {
 
 //Function Declarations...
 //Book Constructor
-function Book(title, author, totalPages, pageYouOn) {
-  this.title = title;
-  this.author = author;
-  this["total pages"] = totalPages;
-  this["page You On"] = pageYouOn;
-}
-
-
+// function Book(title, author, totalPages, pageYouOn) {
+//   this.title = title;
+//   this.author = author;
+//   this["total pages"] = totalPages;
+//   this["page You On"] = pageYouOn;
+// }
 
 // Add books to DOM
 function addBookToView() {
