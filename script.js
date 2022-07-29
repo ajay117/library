@@ -1,3 +1,5 @@
+"use strict";
+
 class Book {
   constructor(title, author, totalPages, pageYouOn) {
     this.title = title;
@@ -108,14 +110,7 @@ elem.books.addEventListener("click", () => {
   elem.updateFormContainer.classList.add("hide");
 });
 
-//Function Declarations...
-//Book Constructor
-// function Book(title, author, totalPages, pageYouOn) {
-//   this.title = title;
-//   this.author = author;
-//   this["total pages"] = totalPages;
-//   this["page You On"] = pageYouOn;
-// }
+
 
 // Add books to DOM
 function addBookToView() {
