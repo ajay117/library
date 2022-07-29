@@ -38,6 +38,86 @@
         <button class="button js-add-btn">Add Book</button>
       </div>
     </nav>
+    <div class="intro">
+      <!--   <h2>Library</h2> -->
+      <p>Keep the record of every book you have read.</p>
+      <p>Just "Add Book" to our platform and we will remember for you.</p>
+    </div>
+    <main class="container hide"></main>
+
+    <div class="form-container hide">
+      <form class="form" action="#" method="">
+        <fieldset>
+          <legend>Enter Book Details</legend>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="Title..."
+            required
+          />
+          <input
+            type="text"
+            name="author"
+            id="author"
+            placeholder="Author..."
+            required
+          />
+          <input
+            type="number"
+            name="total_pages"
+            id="total_pages"
+            placeholder="Total Pages.."
+            required
+          />
+          <input
+            type="number"
+            id="page_you_on"
+            name="page_you_on"
+            placeholder="Page you on.."
+            required
+          />
+          <button class="btn-submit">Add</button>
+        </fieldset>
+      </form>
+    </div>
+
+    <div class="update-form-container hide">
+      <form class="update-form" action="#" method="">
+        <fieldset>
+          <legend>Edit Book Details</legend>
+          <input
+            type="text"
+            name="title"
+            id="title_update"
+            placeholder="Title..."
+            required
+          />
+          <input
+            type="text"
+            name="author"
+            id="author_update"
+            placeholder="Author..."
+            required
+          />
+          <input
+            type="number"
+            name="total_pages"
+            id="total_pages_update"
+            placeholder="Total Pages.."
+            required
+          />
+          <input
+            type="number"
+            id="page_you_on_update"
+            name="page_you_on"
+            placeholder="Page you on.."
+            required
+          />
+          <button class="btn-submit">Update</button>
+        </fieldset>
+      </form>
+    </div>
 
     <script src="script.js"></script>
   </body>
