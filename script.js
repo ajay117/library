@@ -27,7 +27,6 @@ form.addEventListener("submit", (e) => {
   let author = document.querySelector("#author").value;
   let totalPages = document.querySelector("#total_pages").value;
   let pageYouOn = document.querySelector("#page_you_on").value;
-  // let finished = document.querySelector('input[name="finished_reading"]:checked').value;
 
   let bookObj = new Book(title, author, totalPages, pageYouOn);
   myLibrary.push(bookObj);
@@ -119,7 +118,6 @@ function addBookToView() {
     });
 
     editBtn.addEventListener("click", () => {
-      // let updateBtn = document.querySelector('form .')
       updateFormContainer.classList.remove("hide");
 
       updateForm.querySelector("#title_update").value = obj.title;
