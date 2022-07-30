@@ -20,7 +20,7 @@ let elem = (function () {
     form = document.querySelector("form"),
     updateForm = document.querySelector(".update-form"),
     updateFormContainer = document.querySelector(".update-form-container"),
-    introContainer = document.querySelector(".intro");
+    introContainer = document.querySelector(".container-intro");
 
   return {
     home,
