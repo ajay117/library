@@ -105,6 +105,10 @@ input[type="radio"] {
   /* font-size: clamp(1.5rem, 5vw, 2rem); */
   font-size: 32px;
   margin-left: 10px;
+  background: #2563eb;
+  background: repeating-linear-gradient(to right, #2563eb 0%, #e11d48 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .brand-logo {
   vertical-align: middle;
