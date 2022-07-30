@@ -88,7 +88,7 @@ input[type="radio"] {
   background-color: #2563eb;
   color: #f8fafc;
   font-size: 1.1rem;
-  width: 90px;
+  width: 120px;
   margin-left: auto;
 }
 .button:hover {
@@ -102,7 +102,8 @@ input[type="radio"] {
   align-items: center;
 }
 .brand-name {
-  font-size: clamp(1.5rem, 5vw, 2rem);
+  /* font-size: clamp(1.5rem, 5vw, 2rem); */
+  font-size: 32px;
   margin-left: 10px;
 }
 .brand-logo {
@@ -161,16 +162,43 @@ input[type="radio"] {
 }
 .intro {
   font-weight: 600;
+  text-align: center;
+  margin-top: 50px;
+  font-size: clamp(17px, 3vw, 25px);
+  background: #2563eb;
+  background: repeating-linear-gradient(to right, #2563eb 0%, #e11d48 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .box-item {
   display: flex;
   border-bottom: 1px solid;
 }
 .box-item p:nth-child(1) {
-	width: 130px;
+  width: 130px;
 }
+.btn-container {
+  text-align: center;
+  margin-top: 50px;
+}
+.btn-container button {
+  padding: min(2vw, 15px) 20px;
+  border-radius: 15px;
+  font-size: clamp(15px, 2vw, 20px);
+  width: 300px;
+  border-color: #4f46e5;
+  background-color: #ffffff;
+  color: #6d28d9;
+  position: relative;
+}
+
+nav a,
+nav .button {
+  font-size: clamp(17px, 2vw, 20px);
+}
+
 @media screen and (min-width: 1235px) {
-	.container {
-		justify-content: flex-start;
-	}
+  .container {
+    justify-content: flex-start;
+  }
 }
