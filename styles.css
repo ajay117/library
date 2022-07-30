@@ -20,10 +20,6 @@ nav {
 h1 {
   margin: 0;
 }
-.box strong {
-  width: 130px;
-  display: inline-block;
-}
 
 .container {
   display: flex;
@@ -38,7 +34,6 @@ h1 {
   padding: 0 20px;
   margin-bottom: 20px;
 }
-
 /* || Form */
 .form-container {
   height: 90vh;
@@ -138,7 +133,7 @@ input[type="radio"] {
 }
 .form-controls button {
   flex: auto;
-  padding: 5px 0;
+  padding: 10px 0;
   margin: 0 1px;
   color: #f8fafc;
   border: none;
@@ -177,6 +172,12 @@ input[type="radio"] {
 .box-item {
   display: flex;
   border-bottom: 1px solid;
+}
+.box-item {
+	color: #581c87;
+}
+.box-item .flex-content{
+	font-weight: 600;
 }
 .box-item p:nth-child(1) {
   width: 130px;
