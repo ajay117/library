@@ -36,6 +36,7 @@ h1 {
   width: 400px;
   flex-basis: auto;
   padding: 0 20px;
+  margin-bottom: 20px;
 }
 
 /* || Form */
@@ -168,7 +169,7 @@ input[type="radio"] {
 .box-item p:nth-child(1) {
 	width: 130px;
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1235px) {
 	.container {
 		justify-content: flex-start;
 	}
