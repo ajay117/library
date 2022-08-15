@@ -12,6 +12,7 @@ class Book {
 let elem = (function () {
   let home = document.querySelector("#home"),
     books = document.querySelector("#books"),
+    allBooks = document.querySelector(".js-all-books"),
     container = document.querySelector(".container"),
     main = document.querySelector("main"),
     addBookBtn = document.querySelector(".js-add-btn"),
@@ -25,6 +26,7 @@ let elem = (function () {
   return {
     home,
     books,
+    allBooks,
     container,
     main,
     addBookBtn,
@@ -104,6 +106,13 @@ elem.home.addEventListener("click", () => {
 });
 
 elem.books.addEventListener("click", () => {
+  elem.introContainer.classList.add("hide");
+  elem.main.classList.remove("hide");
+  elem.formContainer.classList.add("hide");
+  elem.updateFormContainer.classList.add("hide");
+});
+
+elem.allBooks.addEventListener("click", () => {
   elem.introContainer.classList.add("hide");
   elem.main.classList.remove("hide");
   elem.formContainer.classList.add("hide");
