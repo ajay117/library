@@ -19,6 +19,7 @@ nav {
   height: 10vh;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  overflow-x: scroll;
 }
 nav::-webkit-scrollbar {
   display: none;
